@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>{% block title %}{% end %} | seu palm Group</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1, minimal-ui">
+    <meta name="description" content="Pre-Release Prediction of Crowd Opinion on Movies">
+    <meta name="keywords" content="movies,rating,distribution,prediction,palm,seu">
+    <meta name="author" content="guoqiao">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="baidu-site-verification" content="OWoHq3dtZcsoffFb" />
+    <meta name="baidu_union_verify" content="ca74f9b82d82cbd51b01262367daf29b">
+    <meta property="qc:admins" content="246446362146255655" />
+    <link rel="icon" href="/static/img/icon24.png">
+    <link rel="shortcut icon" href="/static/img/icon24.png">
+    <link rel="stylesheet" type="text/css" href="http://cdn.staticfile.org/chosen/1.1.0/chosen.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://cdn.staticfile.org/messenger/1.4.0/css/messenger.css" />
+    <link rel="stylesheet" type="text/css" href="http://cdn.staticfile.org/messenger/1.4.0/css/messenger-theme-future.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" type="text/css" href="{{ static_url('css/bootstrap.css') }}"/>
+    <link rel="stylesheet" type="text/css" type="text/css" href="{{ static_url('css/bootstrap-responsive.css') }}" />
+    <link rel="stylesheet" type="text/css" type="text/css" href="{{ static_url('css/style.css') }}" />
+    <script src="http://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdn.staticfile.org/underscore.js/1.7.0/underscore-min.js"></script>
+    <script src="{{ static_url('js/echarts.common.min.js') }}"></script>
+  </head>
+
+  <body>
+    <div class="navbar navbar-fixed-top" id="navbar">
+      <div class="navbar-inner">
+      <div class="container">
+      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="brand" href="/"></a>
+      <div class='nav-collapse collapse'>
+        <ul class="nav">
+          <!-- <li class="nav-item "><a href="/shuffle/"><i class="icon-random icon-white"></i>偶遇</a></li>
+          <li class="nav-item "><a href="/psyche/"><i class="icon-heart icon-white"></i>精华</a></li>
+          <li class="nav-item "><a href="/rank/7/"><i class="icon-fire icon-white"></i>热门</a></li> -->
+          <li class="nav-item "><a href="/"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+          <li class="nav-item "><a href="/about"><i class="fa fa-user" aria-hidden="true"></i></i> About</a></li>
+        </ul>
+        <form class="navbar-search" action="/search/" method="get">
+          <input id="q" class="search-query" name="q" value="" placeholder="input movie name" type="text" >
+        </form>
+        <!-- <ul class="nav pull-right">
+          <li class="nav-item">
+            <a href="/accounts/signin/">
+              <i class="icon-user icon-white"></i> 登录
+            </a>
+          </li>
+        </ul> -->
+      </div>
+      </div>
+      </div>
+    </div>
+
+    {% block content %}{% end %}
+
+    <div id="footer">
+      <div class="container text-center">
+        <ul class='inline'>
+        <!-- <li><a target='_blank' href="http://www.weibo.com/readfreeme/">新浪微博</a></li>
+        <li><a target='_blank' href="http://www.douban.com/group/readfree.me/">豆瓣小组</a></li>
+        <li><a target='_blank' href="/wenli/">豆瓣插件</a></li>
+        <li><a target='_blank' href="/faq/">常见问题</a></li>
+        <li><a target='_blank' href="/contact">联系站长</a></li>
+        <li><a href="/chat">聊天室</a></li>
+        <li class="muted">QQ群: 312929250 验证信息: rf</li> -->
+        <li><a target='_blank' href="http://palm.seu.edu.cn/">seu·palm·group</a></li>
+        </ul>
+      </div>
+    </div>
+    <script src="http://cdn.staticfile.org/chosen/1.1.0/chosen.jquery.min.js"></script>
+    <script src="http://cdn.staticfile.org/jquery.pjax/1.9.2/jquery.pjax.min.js"></script>
+    <script src="http://cdn.staticfile.org/messenger/1.4.0/js/messenger.min.js"></script>
+    <script src="http://cdn.staticfile.org/messenger/1.4.0/js/messenger-theme-future.js"></script>
+    <script src="{{ static_url('js/bootstrap.js') }}"></script>
+    <script src="{{ static_url('js/echarts.common.min.js') }}"></script>
+    <script type="text/javascript">
+      var g_url_back = '/';
+      var g_url_wish = '/edition/wish';
+      var g_url_push = '/edition/push';
+      var g_show_ads = 1;
+    </script>
+    <script src="static/js/main.js"></script>
+  </body>
+</html>
+
+

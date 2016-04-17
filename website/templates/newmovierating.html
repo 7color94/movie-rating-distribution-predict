@@ -1,0 +1,120 @@
+{% extends 'layout.html' %}
+
+{% block title %}{{ votes_movie.title }} Ratings{% end %}
+
+{% block content %}
+<div id="container" class='container'>
+<div id="split" class="row">
+<div class="span8 left">
+        
+<div class="margin-medium well">
+  <h2>
+    {% set votes_movie.votes_one = round(votes_movie.votes_one*100,1) %}
+    {% set votes_movie.votes_two = round(votes_movie.votes_two*100,1) %}
+    {% set votes_movie.votes_three = round(votes_movie.votes_three*100,1) %}
+    {% set votes_movie.votes_four = round(votes_movie.votes_four*100,1) %}
+    {% set votes_movie.votes_five = round(votes_movie.votes_five*100,1) %}
+    {% set votes_movie.votes_six = round(votes_movie.votes_six*100,1) %}
+    {% set votes_movie.votes_seven = round(votes_movie.votes_seven*100,1) %}
+    {% set votes_movie.votes_eight = round(votes_movie.votes_eight*100,1) %}
+    {% set votes_movie.votes_nine = round(votes_movie.votes_nine*100,1) %}
+    {% set votes_movie.votes_ten = round(votes_movie.votes_ten*100,1) %}
+    <a class="link-search" target="_blank" href="{{ votes_movie.imdb_url }}">
+    {{ votes_movie.title }}
+    </a>
+    <span class="badge badge-success">Rating Distribution Predict</span>
+    <span class="label label-info"><a target="_blank" href="{{ votes_movie.imdb_url}}/ratings">see more in imdb</a></span>
+  </h2>
+  <div class='book-summary'>
+    <a target='_blank' class='pull-right z-link-search' href="{{ votes_movie.imdb_url }}">
+    <img class='book-cover img-rounded margin-medium' src="{{ votes_movie.poster_url }}"/>
+    </a>
+    <span>
+      <div id="ratingDistribution" style="width: 600px;height:400px;"></div>
+      <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('ratingDistribution'));
+
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: 'Rating Distribution'
+            },
+            tooltip: {
+                trigger: 'axis',
+                formatter: "{a} <br/>{b} : {c} %"
+            },
+            toolbox: {
+                feature: {
+                dataView: {show: true, readOnly: false},
+                magicType: {show: true, type: ['line', 'bar']},
+                restore: {show: true},
+                saveAsImage: {show: true}
+                }
+            },
+            legend: {
+                data:['Rating']
+            },
+            xAxis: {
+                type : 'category',
+                data: ["1","2","3","4","5","6","7","8","9","10"]
+            },
+            yAxis: {
+                type: 'value',
+                axisLabel: {
+                  show: true,
+                  interval: 'auto',
+                  formatter: '{value} %'
+                }
+            },
+            series: [{
+                name: 'Rating',
+                type: 'bar',
+                label: {
+                    normal: {
+                        show: true,
+                        formatter: '{c} %',
+                        position: 'top',
+                    }
+                },
+                data: [
+                    {{votes_movie.votes_one}},
+                    {{votes_movie.votes_two}},
+                    {{votes_movie.votes_three}},
+                    {{votes_movie.votes_four}},
+                    {{votes_movie.votes_five}},
+                    {{votes_movie.votes_six}},
+                    {{votes_movie.votes_seven}},
+                    {{votes_movie.votes_eight}},
+                    {{votes_movie.votes_nine}},
+                    {{votes_movie.votes_ten}},
+                ],
+                // data: [
+                //     { {{votes_movie.votes_one*100}}, name:'Rating 1' },
+                //     { {{votes_movie.votes_two*100}}, name:'Rating 2' },
+                //     { {{votes_movie.votes_three*100}}, name:'Rating 3' },
+                //     { {{votes_movie.votes_four*100}}, name:'Rating 4' },
+                //     { {{votes_movie.votes_five*100}}, name:'Rating 5' },
+                //     { {{votes_movie.votes_six*100}}, name:'Rating 6' },
+                //     { {{votes_movie.votes_seven*100}}, name:'Rating 7' },
+                //     { {{votes_movie.votes_eight*100}}, name:'Rating 8' },
+                //     { {{votes_movie.votes_nine*100}}, name:'Rating 9' },
+                //     { {{votes_movie.votes_ten*100}}, name:'Rating 10' },
+                // ],
+                itemStyle:{
+                  normal:{color:'#4b73a6'}
+              }
+            }]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+    </span>
+    <br>
+    <div class='clearfix'></div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+{% end %}

@@ -1,0 +1,230 @@
+{% extends 'layout.html' %}
+
+{% block title %}{{ new_movie.title }}{% end %}
+
+{% block content %}
+
+<div id="container" class='container'>
+<div id="split" class="row">
+<div class="span8 left">
+        
+<div class="margin-medium well">
+  <h2>
+    <a class="link-search" target="_blank" href="{{ new_movie.imdb_url }}">
+    {{ new_movie.title }}
+    </a>
+  </h2>
+  <p>
+    <span>
+      <a target='_blank' class='pull-right z-link-search' href="/new-movie-rating/{{ new_movie.id }}">
+        <i class="margin-medium fa fa-star rating-icon" aria-hidden="true"></i>
+        <span class="badge badge-success">Rating Distribution Predict（clik here）</span>
+      </a>
+      <strong>Director:</strong>
+      {% if new_movie.director %}
+      {% set director_list = new_movie.director.split(':') %}
+      {% for d in director_list %}
+      <a class="z-link-search"  target="_blank" href="http://www.imdb.com/find?q={{d}}">
+      <strong>{{ d }}</strong>
+      </a>
+      {% end %}
+      {% end %}
+    </span>
+    <br>
+    <span>
+      <strong>Color:</strong>
+      {% if new_movie.color %}
+      {% set color_list = new_movie.color.split(':') %}
+      {% for c in color_list %}
+      <span>{{ c }}</span>
+      {% end %}
+      {% end %}
+    </span>
+    <br>
+    <span>
+      <strong>Year:</strong>
+      {% if new_movie.year %}
+      <span>{{ new_movie.year }}</span>
+      </a>
+      {% end %}
+    </span>
+    <br>
+    <span>
+      <strong>Running Time:</strong>
+      {% if new_movie.running_time %}
+      <span>{{ new_movie.running_time }}</span>
+      </a>
+      {% end %}
+    </span>
+    <br>
+    <span>
+      <strong>Genre:</strong>
+      {% if new_movie.genre %}
+      {% set genre_list = new_movie.genre.split(':') %}
+      {% for g in genre_list %}
+      <span>{{ g }}</span>
+      {% end %}
+      {% end %}
+    </span>
+    <br>
+    <span>
+      <strong>Language:</strong>
+      {% if new_movie.language %}
+      {% set language_list = new_movie.language.split(':') %}
+      {% for l in language_list %}
+      <span>{{ l }}</span>
+      {% end %}
+      {% end %}
+    </span>
+    <br>
+    <span>
+      <strong>Soundmix:</strong>
+      {% if new_movie.soundmix %}
+      {% set soundmix_list = new_movie.soundmix.split(':') %}
+      {% for s in soundmix_list %}
+      <span>{{ s }}</span>
+      {% end %}
+      {% end %}
+    </span>
+    <br>
+    <span>
+      <strong>Country:</strong>
+      {% if new_movie.country %}
+      {% set country_list = new_movie.country.split(':') %}
+      {% for c in country_list %}
+      <span>{{ c }}</span>
+      {% end %}
+      {% end %}
+    </span>
+    <br>
+    <strong>Company:</strong>
+      {% if new_movie.company %}
+      {% set company_list = new_movie.company.split(':') %}
+      {% for c in company_list %}
+      <a class="z-link-search"  target="_blank" href="http://www.imdb.com/find?q={{c}}">
+      <span>{{ c }}</span>
+      </a>
+      {% end %}
+      {% end %}
+    <br>
+  </p>
+
+  <!-- <div>
+    <span>
+      豆瓣:
+      <span class="badge badge-success">7.7</span>分
+      (<a href="https://book.douban.com/subject/25898124/" target='_blank'>
+      3072人评价...
+      </a>)
+    </span>
+    <a target='_blank' class="z-link-search btn btn-primary btn-long pull-right"
+            href="http://www.amazon.cn/gp/search?index=books&keywords=得未曾有&tag=readfreeme-23"
+            title="购买正版...">
+      <i class="icon-shopping-cart icon-white"></i> 支持正版
+    </a>
+    <div class='clearfix'></div>      
+  </div> -->
+  <div class='book-summary'>
+    <a target='_blank' class='pull-right z-link-search' href="{{ new_movie.imdb_url }}">
+    <img class='book-cover img-rounded margin-medium' src="{{ new_movie.poster_url }}"/>
+    </a>
+    <span>
+      <strong>Cast:</strong>
+      {% if new_movie.cast %}
+      {% set cast_list = new_movie.cast.split(':') %}
+      {% for c in cast_list %}
+      <a class="z-link-search"  target="_blank" href="http://www.imdb.com/find?q={{c}}">
+      <span>{{ c }}</span>
+      </a>
+      {% end %}
+      {% end %}
+      <br>
+      <strong>Producer:</strong>
+      {% if new_movie.producer %}
+      {% set producer_list = new_movie.producer.split(':') %}
+      {% for p in producer_list %}
+      <a class="z-link-search"  target="_blank" href="http://www.imdb.com/find?q={{p}}">
+      <span>{{ p }}</span>
+      </a>
+      {% end %}
+      {% end %}
+      <br>
+      <strong>Writer:</strong>
+      {% if new_movie.writer %}
+      {% set writer_list = new_movie.writer.split(':') %}
+      {% for w in writer_list %}
+      <a class="z-link-search"  target="_blank" href="http://www.imdb.com/find?q={{w}}">
+      <span>{{ w }}</span>
+      </a>
+      {% end %}
+      {% end %}
+      <br>
+    </span>
+    <div class='clearfix'></div>
+  </div>
+  <br>
+  <p>
+  <span>
+      <strong>Cinematographer:</strong>
+      {% if new_movie.cinematographer %}
+      {% set cinematographer_list = new_movie.cinematographer.split(':') %}
+      {% for c in cinematographer_list %}
+      <a class="z-link-search"  target="_blank" href="http://www.imdb.com/find?q={{c}}">
+      <span>{{ c }}</span>
+      </a>
+      {% end %}
+      {% end %}
+    </span>
+    <br>
+    <span>
+      <strong>Composer:</strong>
+      {% if new_movie.composer %}
+      {% set composer_list = new_movie.composer.split(':') %}
+      {% for c in composer_list %}
+      <a class="z-link-search"  target="_blank" href="http://www.imdb.com/find?q={{c}}">
+      <span>{{ c }}</span>
+      </a>
+      {% end %}
+      {% end %}
+    </span>
+    <br>
+    <span>
+      <strong>Costume Designer:</strong>
+      {% if new_movie.costume_designer %}
+      {% set costume_designer_list = new_movie.costume_designer.split(':') %}
+      {% for c in costume_designer_list %}
+      <a class="z-link-search"  target="_blank" href="http://www.imdb.com/find?q={{c}}">
+      <span>{{ c }}</span>
+      </a>
+      {% end %}
+      {% end %}
+    </span>
+    <br>
+    <span>
+      <strong>Editor:</strong>
+      {% if new_movie.editor %}
+      {% set editor_list = new_movie.editor.split(':') %}
+      {% for e in editor_list %}
+      <a class="z-link-search"  target="_blank" href="http://www.imdb.com/find?q={{e}}">
+      <span>{{ e }}</span>
+      </a>
+      {% end %}
+      {% end %}
+    </span>
+  </p>
+  {% if new_movie.keywords %}
+  <ul class='unstyled inline well' id="book-tags">
+    <strong>Keywords: </strong>
+    {% set keywords_list = new_movie.keywords.split(':') %}
+    {% for k in keywords_list %}
+    <a class="z-link-search"  target="_blank" href="http://www.imdb.com/find?q={{k}}">
+    <span>{{ k }}</span>
+    </a>
+    {% end %}
+  </ul>
+  {% end %}
+</div>
+</div>
+</div>
+</div>
+{% end %}
