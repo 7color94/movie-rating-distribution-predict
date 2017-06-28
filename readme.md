@@ -28,7 +28,13 @@ Following the algorithm from paper, I use LDSVR Algorithm to train the model. Pl
 
 I use Tronado to show results. Here are some website snapshots shown below. And the website need mysql DB for data support.
 
+![](https://raw.githubusercontent.com/7color94/movie-rating-distribution-predict/master/results/index_pic.png)
 
+![](https://raw.githubusercontent.com/7color94/movie-rating-distribution-predict/master/results/movie_detail_pic.png)
+
+![](https://raw.githubusercontent.com/7color94/movie-rating-distribution-predict/master/results/movie_rating_pic1.png)
+
+![](https://raw.githubusercontent.com/7color94/movie-rating-distribution-predict/master/results/movie_rating_pic2.png)
 
 ### References
 
