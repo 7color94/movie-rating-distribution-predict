@@ -26,7 +26,7 @@ Following the algorithm from paper, I use LDSVR Algorithm to train the model. Pl
 
 ### Results
 
-I use Tronado to show results. Here are some website snapshots shown below. And the website need mysql DB for data support.
+I use Tornado to show results. Here are some website snapshots shown below. And the website need mysql DB for data support.
 
 ![](https://raw.githubusercontent.com/7color94/movie-rating-distribution-predict/master/results/index_pic.png)
 
